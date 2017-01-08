@@ -4,7 +4,6 @@ namespace SSPro;
 
 
 use PHPMailer;
-use SSPro\Details;
 
 class Shape
 {
@@ -93,7 +92,6 @@ class Shape
     public function sendEmail()
     {
 
-        $info = new Details();
         $mail = new PHPMailer();
 
         $mail->SMTPDebug = 3;
@@ -113,12 +111,12 @@ class Shape
         $mail->SMTPAuth = true;
 
         //Provide username and password
-        $mail->Username = $info->email;
-        $mail->Password = $info->pass;
-
+        $mail->Username = getenv('EMAIL');
+        $mail->Password = getenv('PASSWORD');
+print_r($mail);die('dead');
         $mail->FromName = "SS BTC/ETH Update";
 
-        $mail->addAddress($info->emailTo);
+        $mail->addAddress(getenv('EMAIL_TO'));
 
         $mail->isHTML(true);
 

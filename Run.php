@@ -5,7 +5,11 @@ namespace SSPro;
 require 'vendor/autoload.php';
 
 use SSPro\Shape;
-use SSPro\Details;
+use Dotenv;
+
+// Loads the .env file with our credentials
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
 $shape = new Shape();
 
