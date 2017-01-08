@@ -68,7 +68,6 @@ class Shape
         //Provide username and password
         $mail->Username = getenv('EMAIL');
         $mail->Password = getenv('PASSWORD');
-print_r($mail);die('dead');
         $mail->FromName = "SS BTC/ETH Update";
 
         $mail->addAddress(getenv('EMAIL_TO'));
