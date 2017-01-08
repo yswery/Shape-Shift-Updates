@@ -1,4 +1,4 @@
-# Shape-Shift-Updates
+# Bitcoin and Ether Email Updates
 Email alerts for ShapeShift Bitcoin and Ether exchange rate changes
 
 ###_Version 0.2_
