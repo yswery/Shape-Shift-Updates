@@ -1,7 +1,5 @@
-# Shape-Shift-Updates
+# Bitcoin and Ether Email Updates
 Email alerts for ShapeShift Bitcoin and Ether exchange rate changes
-
----
 
 # Installation
 You must have composer already set up on your environment - [Installing Composer](https://getcomposer.org/doc/00-intro.md)
@@ -18,8 +16,12 @@ Now you will need to edit your .env with your GMail SMTP credentials and recievi
 # Changelog 
 
 ### _Version 0.2_
-- Make use og dotenv environment system
-- Clean up the vendor and other gitignore files
+- Add sell price to email
+- Add NZD prices to email
+- Split classes up
+- Formatted email layout
+- Refactored code
+- Make use of dotenv environment system
 
 ### _Version 0.1_
 - Initial commit 
