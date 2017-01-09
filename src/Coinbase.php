@@ -2,10 +2,6 @@
 
 namespace SSPro;
 
-
-use PHPMailer;
-
-
 /**
  * Class Coinbase
  *  - Gets coin prices from Coinbase.com API
