@@ -11,6 +11,14 @@ cp -f .env.example .env
 
 Now you will need to edit your .env with your GMail SMTP credentials and recieving EMAIL address.
 
+
+
+# Use
+To use, simply call the below from the command line 
+```
+php Run.php
+```
+
 ---
 
 # Changelog 
