@@ -4,12 +4,19 @@ namespace SSPro;
 
 
 use PHPMailer;
-use SSPro\Details;
+
+
+/**
+ * Class Coinbase
+ *  - Gets coin prices from Coinbase.com API
+ *
+ * @package SSPro
+ */
 
 class Coinbase
 {
     /****************************************************
-     * BUY
+     * BUY prices
      ****************************************************/
     public function getBuyBTCValueUSD()
     {
@@ -61,7 +68,7 @@ class Coinbase
     }
 
     /****************************************************
-     * SELL
+     * SELL Prices
      ****************************************************/
 
     public function getSellBTCValueUSD()
