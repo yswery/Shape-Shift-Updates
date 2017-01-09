@@ -2,10 +2,6 @@
 
 namespace SSPro;
 
-
-use PHPMailer;
-
-
 /**
  * Class CoinCap
  *  - Gets coin prices from Coincap.io API
@@ -25,7 +21,7 @@ class CoinCap
         [bitnodesCount] => 5658
      */
 
-    public function getCoinInfo()
+    public function getBTCCoinInfo()
     {
         $uri = "http://socket.coincap.io/global";
 
@@ -38,12 +34,6 @@ class CoinCap
 
     }
 
-
-//[btcPrice] => 895.4
-//[btcCap] => 14407814245
-//[altCap] => 2432225487
-//[dom] => 86
-//[bitnodesCount] => 5658
 
 }
 
