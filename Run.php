@@ -14,4 +14,3 @@ $dotenv->load();
 $shape = new Shape();
 
 $shape->sendEmail();
-
