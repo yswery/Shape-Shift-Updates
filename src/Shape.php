@@ -11,26 +11,37 @@ class Shape
     private $limit;
     private $fee;
 
+    // CoinBase Prices
     private $BTCValueUSD;
     private $BTCValueNZD;
     private $BTCValueUSDSell;
     private $BTCValueNZDSell;
-
     private $ETHValueUSD;
     private $ETHValueNZD;
     private $ETHValueUSDSell;
     private $ETHValueNZDSell;
 
+    // CoinCap.io Prices
+    private $Coincap_BTCValueUSD;
+
 
     function __construct()
     {
-        $coinbase = new Coinbase();
         $shapeshifter = new ShapeShifter();
 
         $this->coinInfo = $shapeshifter->getCoinInfo();
         $this->rate = $this->coinInfo['rate'];
         $this->limit = $this->coinInfo['limit'];
         $this->fee = $this->coinInfo['minerFee'];
+
+        $this->getCoinbaseInfo();
+        $this->getCoinCapInfo();
+
+    }
+
+    private function getCoinbaseInfo()
+    {
+        $coinbase = new Coinbase();
 
         $this->BTCValueUSD = $coinbase->getBuyBTCValueUSD();
         $this->BTCValueNZD = $coinbase->getBuyBTCValueNZD();
@@ -40,6 +51,13 @@ class Shape
         $this->BTCValueNZDSell = $coinbase->getSellBTCValueNZD();
         $this->ETHValueUSDSell = $coinbase->getSellETHValueUSD();
         $this->ETHValueNZDSell = $coinbase->getSellETHValueNZD();
+    }
+
+    private function getCoinCapInfo()
+    {
+        $coincap = new CoinCap();
+
+        $this->Coincap_BTCValueUSD = $coincap->getCoinInfo();
     }
 
 
@@ -80,16 +98,18 @@ class Shape
                        <pre><i>Limit $this->limit</i></pre>
                        <pre><i>Fee $this->fee</i></pre>
                        <br>
+                               
+                       <h4>CoinCap.io (Used by ShapeShift)</h4>
+                       <pre>Bitcoin USD $$this->Coincap_BTCValueUSD</pre>
+                       <br>
                        
-                       <h4>Coinbase : Price update</h4>
+                       <h4>Coinbase</h4>
                        <h5>BUY Prices</h5>
                        <pre>Bitcoin USD $$this->BTCValueUSD ($$this->BTCValueNZD NZD)</pre>
                        <pre>Ether USD $$this->ETHValueUSD ($$this->ETHValueNZD NZD)</pre>
-                       
                        <h5>SELL Prices</h5>
                        <pre>Bitcoin USD $$this->BTCValueUSDSell ($$this->BTCValueNZDSell NZD)</pre>
                        <pre>Ether USD $$this->ETHValueUSDSell ($$this->ETHValueNZDSell NZD)</pre>
-
         ";
 
         // Sends the email
