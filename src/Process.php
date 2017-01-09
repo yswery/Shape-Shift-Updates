@@ -4,7 +4,7 @@ namespace SSPro;
 
 use PHPMailer;
 
-class Shape
+class Process
 {
     private $coinInfo;
     private $rate;
