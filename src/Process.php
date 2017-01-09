@@ -52,10 +52,6 @@ class Process
         $this->BTCValueNZD = $coinbase->getBuyBTCValueNZD();
         $this->ETHValueUSD = $coinbase->getBuyETHValueUSD();
         $this->ETHValueNZD = $coinbase->getBuyETHValueNZD();
-        $this->BTCValueUSDSell = $coinbase->getSellBTCValueUSD();
-        $this->BTCValueNZDSell = $coinbase->getSellBTCValueNZD();
-        $this->ETHValueUSDSell = $coinbase->getSellETHValueUSD();
-        $this->ETHValueNZDSell = $coinbase->getSellETHValueNZD();
     }
 
     // Sets the local variable with the CoinCap price info
@@ -108,9 +104,9 @@ class Process
 
         $mail->Subject = "BTC_ETH Update";
         $mail->Body = "<h4>Shape Shift : Bitcoin / Ether Update</h4>
-                       <pre><i>Rate $this->rate</i></pre>
-                       <pre><i>Limit $this->limit</i></pre>
-                       <pre><i>Fee $this->fee</i></pre>
+                       <pre>Rate: 1BTC = $this->rate ETH</pre>
+                       <pre>Limit: $this->limit</pre>
+                       <pre>Fee: $this->fee</pre>
                        <br>
                                
                        <h4>CoinCap.io (Used by ShapeShift)</h4>
