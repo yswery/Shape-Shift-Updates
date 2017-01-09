@@ -4,7 +4,6 @@ namespace SSPro;
 
 
 use PHPMailer;
-use SSPro\Details;
 
 class ShapeShifter
 {
