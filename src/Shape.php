@@ -24,6 +24,9 @@ class Shape
     // CoinCap.io Prices
     private $Coincap_BTCValueUSD;
 
+    // CoinDesk Prices
+    private $Coindesk_BTCValueUSD;
+
 
     function __construct()
     {
@@ -34,12 +37,14 @@ class Shape
         $this->limit = $this->coinInfo['limit'];
         $this->fee = $this->coinInfo['minerFee'];
 
-        $this->getCoinbaseInfo();
-        $this->getCoinCapInfo();
+        $this->setCoinbaseInfo();
+        $this->setCoinCapInfo();
+        $this->setCoinDeskInfo();
 
     }
 
-    private function getCoinbaseInfo()
+    // Sets the local variables with the Coinbase price info
+    private function setCoinbaseInfo()
     {
         $coinbase = new Coinbase();
 
@@ -53,11 +58,20 @@ class Shape
         $this->ETHValueNZDSell = $coinbase->getSellETHValueNZD();
     }
 
-    private function getCoinCapInfo()
+    // Sets the local variable with the CoinCap price info
+    private function setCoinCapInfo()
     {
         $coincap = new CoinCap();
 
-        $this->Coincap_BTCValueUSD = $coincap->getCoinInfo();
+        $this->Coincap_BTCValueUSD = $coincap->getBTCCoinInfo();
+    }
+
+    // Sets the local variable with the Coindesk price info
+    private function setCoinDeskInfo()
+    {
+        $coindesk = new CoinDesk();
+
+        $this->Coindesk_BTCValueUSD = $coindesk->getCoinInfo();
     }
 
 
@@ -104,12 +118,12 @@ class Shape
                        <br>
                        
                        <h4>Coinbase</h4>
-                       <h5>BUY Prices</h5>
                        <pre>Bitcoin USD $$this->BTCValueUSD ($$this->BTCValueNZD NZD)</pre>
                        <pre>Ether USD $$this->ETHValueUSD ($$this->ETHValueNZD NZD)</pre>
-                       <h5>SELL Prices</h5>
-                       <pre>Bitcoin USD $$this->BTCValueUSDSell ($$this->BTCValueNZDSell NZD)</pre>
-                       <pre>Ether USD $$this->ETHValueUSDSell ($$this->ETHValueNZDSell NZD)</pre>
+                       <br>
+                       
+                       <h4>CoinDesk</h4>
+                       <pre>Bitcoin USD $$this->Coindesk_BTCValueUSD</pre>     
         ";
 
         // Sends the email

@@ -32,6 +32,7 @@ php Run.php
 - Refactored code
 - Make use of dotenv environment system
 - Add BTC pricing from CoinCap.io (used by Shapeshift)
+- Add BTC pricing from CoinDesk
 
 ### _Version 0.1_
 - Initial commit 
