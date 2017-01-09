@@ -23,6 +23,7 @@ php Run.php
 
 # Changelog 
 
+
 ### _Version 0.2_
 - Add sell price to email
 - Add NZD prices to email
@@ -30,6 +31,7 @@ php Run.php
 - Formatted email layout
 - Refactored code
 - Make use of dotenv environment system
+- Add BTC pricing from CoinCap.io (used by Shapeshift)
 
 ### _Version 0.1_
 - Initial commit 
