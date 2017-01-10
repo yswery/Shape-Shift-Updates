@@ -4,7 +4,6 @@ namespace SSPro;
 
 require 'vendor/autoload.php';
 
-use SSPro\Process;
 use Dotenv;
 
 // Loads the .env file with our credentials
@@ -16,5 +15,8 @@ $rate = $shape->getCurrentRate();
 
 if ($rate > 88) {
     $process = new Process();
-    $process->sendEmail();
+    $status = $process->setTimeEmailSent();
+    if ($status) {
+        $process->sendEmail();
+    } 
 }
