@@ -107,16 +107,13 @@ class Process
                        <pre>Rate: 1BTC = $this->rate ETH</pre>
                        <pre>Limit: $this->limit</pre>
                        <pre>Fee: $this->fee</pre>
-                       <br>
                                
                        <h4>CoinCap.io (Used by ShapeShift)</h4>
                        <pre>Bitcoin USD $$this->Coincap_BTCValueUSD</pre>
-                       <br>
                        
                        <h4>Coinbase</h4>
                        <pre>Bitcoin USD $$this->BTCValueUSD ($$this->BTCValueNZD NZD)</pre>
                        <pre>Ether USD $$this->ETHValueUSD ($$this->ETHValueNZD NZD)</pre>
-                       <br>
                        
                        <h4>CoinDesk</h4>
                        <pre>Bitcoin USD $$this->Coindesk_BTCValueUSD</pre>     
