@@ -11,6 +11,10 @@ use Dotenv;
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
-$shape = new Process();
+$shape = new ShapeShifter();
+$rate = $shape->getCurrentRate();
 
-$shape->sendEmail();
+if ($rate > 88) {
+    $process = new Process();
+    $process->sendEmail();
+}
