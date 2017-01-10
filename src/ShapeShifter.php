@@ -19,6 +19,12 @@ class ShapeShifter
 
     }
 
+    public function getCurrentRate()
+    {
+        $data = $this->getCoinInfo();
+        return $data['rate'];
+    }
+
 
 }
 
