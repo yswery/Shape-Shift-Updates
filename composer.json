@@ -5,7 +5,9 @@
     },
     "autoload": {
         "classmap" : [
-            "src/"
+            "src/",
+            "Model",
+            "API"
         ]
     }
 }
