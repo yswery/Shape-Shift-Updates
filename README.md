@@ -23,6 +23,10 @@ php Run.php
 
 # Changelog 
 
+### _Version 0.3_
+- Add SQLite3 database read/write
+- Rewrite service-provider classes to get BTC specific data
+- Add ability to query Poloniex API with private keys 
 
 ### _Version 0.2_
 - Add sell price to email
