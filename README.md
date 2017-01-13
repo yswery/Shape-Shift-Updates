@@ -11,7 +11,7 @@ cp -f .env.example .env
 
 Now you will need to edit your .env with your GMail SMTP credentials and recieving EMAIL address.
 
-
+####To use Database services you must first create a SQLite3 database
 
 # Use
 To use, simply call the below from the command line 
