@@ -70,27 +70,6 @@ class Process
         $this->Coindesk_BTCValueUSD = $coindesk->getCoinInfo();
     }
 
-    public function setTimeEmailSent()
-    {
-        $file = file('emailedat.txt');
-        $time = trim($file[0]);
-        $currentTime = time();
-
-        /**
-         * If the time in the file is over an hour old
-         *  - Write the current time to the file
-         *  - Return true
-         */
-        if (($currentTime - 3600) > $time) {
-            $fp = fopen('emailedat.txt', 'w');
-            fwrite($fp, $currentTime);
-            fclose($fp);
-            return true;
-        }
-        
-        return false;
-    }
-
 
 
     public function sendEmail()
