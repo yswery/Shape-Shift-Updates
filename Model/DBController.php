@@ -25,7 +25,7 @@ class DBController
     public function insertPriceDB($coin, $priceUSD, $priceBTC, $provider)
     {
         $this->db->exec("INSERT INTO `prices`(`id`,`coin`,`price_usd`,`price_btc`,`provider`,`created_at`) 
-                         VALUES (NULL,'$coin' , '$priceUSD', '$priceBTC', '$provider', CURRENT_TIMESTAMP)
+                         VALUES (NULL,'$coin' , '$priceUSD', '$priceBTC', '$provider', datetime(CURRENT_TIMESTAMP, 'localtime'))
                          ");
     }
 
@@ -33,7 +33,7 @@ class DBController
     {
 
         $this->db->exec("INSERT INTO `shapeshifter_rates`(`id`,`coin`,`rate_btc`,`limit`, `fee`, `created_at`) 
-                         VALUES (NULL,'$coins' , '$rate', '$limit','$fee', CURRENT_TIMESTAMP)
+                         VALUES (NULL,'$coins' , '$rate', '$limit','$fee', datetime(CURRENT_TIMESTAMP, 'localtime'))
                          ");
 
     }
@@ -42,7 +42,7 @@ class DBController
     {
 
         $this->db->exec("INSERT INTO `poloniex_rates`(`id`,`coin`,`high24hr`, `low24hr`, `low_ask`, `high_bid`, `created_at`) 
-                         VALUES (NULL,'$coin', '$high24hr', '$low24hr', '$lowAsk', '$highBid', CURRENT_TIMESTAMP)
+                         VALUES (NULL,'$coin', '$high24hr', '$low24hr', '$lowAsk', '$highBid', datetime(CURRENT_TIMESTAMP, 'localtime'))
                          ");
 
     }
