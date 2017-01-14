@@ -12,18 +12,21 @@ class CoinCap
 {
 
 
-    public function getBTCCoinInfo()
+    public function get_CoinCap_BTC()
     {
         $uri = "http://socket.coincap.io/global";
 
         $result = json_decode(file_get_contents($uri), true); // converts it to an array object
 
-        var_dump($result); die();
-        if (isset($result['btcPrice'])) {
-            return $result['btcPrice'];
-        }
-        return "error";
+        return $result;
+    }
 
+    public function set_CoinCap_BTC()
+    {
+        $db = new DBController();
+        $data = $this->get_CoinCap_BTC();
+
+        $db->insertPriceDB("BTC", $data['btcPrice'], 1, "CoinCap");
     }
 
 
