@@ -38,11 +38,29 @@ class DBController
 
     }
 
-    public function insertPoloniexRateDB($coin, $high24hr, $low24hr, $lowAsk, $highBid)
+    public function insertPoloniexRateDB($coin, $last, $high24hr, $low24hr, $lowAsk, $highBid)
     {
 
-        $this->db->exec("INSERT INTO `poloniex_rates`(`id`,`coin`,`high24hr`, `low24hr`, `low_ask`, `high_bid`, `created_at`) 
-                         VALUES (NULL,'$coin', '$high24hr', '$low24hr', '$lowAsk', '$highBid', datetime(CURRENT_TIMESTAMP, 'localtime'))
+        $this->db->exec("INSERT INTO `poloniex_rates`(`id`,`coin`,`last`, `high24hr`, `low24hr`, `low_ask`, `high_bid`, `created_at`) 
+                         VALUES (NULL,'$coin', '$last', '$high24hr', '$low24hr', '$lowAsk', '$highBid', datetime(CURRENT_TIMESTAMP, 'localtime'))
+                         ");
+
+    }
+
+    public function insertPoloniexCoinBalances($coin, $balance, $last)
+    {
+
+        $this->db->exec("INSERT INTO `poloniex_coin_balances`(`id`,`coin`, `balance`, `last`, `created_at`)
+                         VALUES (NULL, '$coin', '$balance', '$last', datetime(CURRENT_TIMESTAMP, 'localtime'))
+                         ");
+
+    }
+
+    public function insertPoloniexTotalBalances($balanceBTC, $balanceUSD)
+    {
+
+        $this->db->exec("INSERT INTO `poloniex_total_balance`(`id`, `balance_btc`, `balance_usd`, `created_at`)
+                         VALUES (NULL, '$balanceBTC', '$balanceUSD', datetime(CURRENT_TIMESTAMP, 'localtime'))
                          ");
 
     }
