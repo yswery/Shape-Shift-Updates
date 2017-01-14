@@ -6,41 +6,18 @@ use PHPMailer;
 
 class Process
 {
-    private $coinInfo;
-    private $rate;
-    private $limit;
-    private $fee;
 
-    // CoinBase Prices
-    private $BTCValueUSD;
-    private $BTCValueNZD;
-    private $BTCValueUSDSell;
-    private $BTCValueNZDSell;
-    private $ETHValueUSD;
-    private $ETHValueNZD;
-    private $ETHValueUSDSell;
-    private $ETHValueNZDSell;
+    private $coincap;
+    private $coinbase;
+    private $coindesk;
+    private $polon;
 
-    // CoinCap.io Prices
-    private $Coincap_BTCValueUSD;
-
-    // CoinDesk Prices
-    private $Coindesk_BTCValueUSD;
-
-
-    function __construct()
+    public function __construct()
     {
-        $shapeshifter = new ShapeShifter();
-
-        $this->coinInfo = $shapeshifter->getCoinInfo();
-        $this->rate = $this->coinInfo['rate'];
-        $this->limit = $this->coinInfo['limit'];
-        $this->fee = $this->coinInfo['minerFee'];
-
-        $this->setCoinbaseInfo();
-        $this->setCoinCapInfo();
-        $this->setCoinDeskInfo();
-
+        $this->coincap = new CoinCap();
+        $this->coinbase = new Coinbase();
+        $this->coindesk = new CoinDesk();
+        $this->polon = new Poloniex();
     }
 
     // Sets the local variables with the Coinbase price info
