@@ -59,7 +59,25 @@ class Process
     {
         $coincap = new CoinCap();
 
-        $this->Coincap_BTCValueUSD = $coincap->getBTCCoinInfo();
+    /**
+     * This sets the Coin Balances as well as the Total Balance
+     */
+    public function set_poloniex_Coin_Balances()
+    {
+        $poloniex = new KeyPoloniex();
+        $db = new DBController();
+        $result = $poloniex->get_total_btc_balance();
+
+        foreach ($result as $value) {
+            $keys = array_keys($value);
+            if (!in_array('Total_Balance', $keys)) {
+                $db->insertPoloniexCoinBalances($keys[0], $value['Balance'], $value[$keys[0]]['last']);
+            } else {
+                $usd = $poloniex->get_ticker("USDT_BTC");
+                $btcUSDValue = round($usd['last'] * $value['Total_Balance'], 2);
+                $db->insertPoloniexTotalBalances($value['Total_Balance'], $btcUSDValue);
+            }
+        }
     }
 
     // Sets the local variable with the Coindesk price info
