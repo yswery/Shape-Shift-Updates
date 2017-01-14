@@ -25,10 +25,16 @@ class Process
     {
         $coinbase = new Coinbase();
 
-        $this->BTCValueUSD = $coinbase->getBuyBTCValueUSD();
-        $this->BTCValueNZD = $coinbase->getBuyBTCValueNZD();
-        $this->ETHValueUSD = $coinbase->getBuyETHValueUSD();
-        $this->ETHValueNZD = $coinbase->getBuyETHValueNZD();
+    /**
+     * Sets the price of BTC in the database
+     */
+    public function set_Prices_BTC()
+    {
+        $this->coincap->set_CoinCap_BTC();
+        $this->coinbase->set_Coinbase_BTC();
+        $this->coindesk->set_CoinDesk_BTC();
+        $this->polon->set_data('USDT_BTC');
+        $this->polon->set_data('BTC_ETH');
     }
 
     // Sets the local variable with the CoinCap price info
