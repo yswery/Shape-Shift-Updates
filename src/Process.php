@@ -20,10 +20,6 @@ class Process
         $this->polon = new Poloniex();
     }
 
-    // Sets the local variables with the Coinbase price info
-    private function setCoinbaseInfo()
-    {
-        $coinbase = new Coinbase();
 
     /**
      * Sets the price of BTC in the database
@@ -37,10 +33,6 @@ class Process
         $this->polon->set_data('BTC_ETH');
     }
 
-    // Sets the local variable with the CoinCap price info
-    private function setCoinCapInfo()
-    {
-        $coincap = new CoinCap();
 
     /**
      * This sets the Coin Balances as well as the Total Balance
@@ -63,14 +55,12 @@ class Process
         }
     }
 
-    // Sets the local variable with the Coindesk price info
-    private function setCoinDeskInfo()
+    public function set_ShapeShifter_Rates()
     {
-        $coindesk = new CoinDesk();
-
-        $this->Coindesk_BTCValueUSD = $coindesk->getCoinInfo();
+        $shape = new ShapeShifter();
+        $shape->set_BTC_ETH();
+        $shape->set_ETH_BTC();
     }
-
 
 
     public function sendEmail()
