@@ -28,6 +28,7 @@ class Poloniex
         $db = new DBController();
         $data = $this->get_data($coin);
 
-        $db->insertPoloniexRateDB($coin, $data['high24hr'], $data['low24hr'], $data['lowestAsk'], $data['highestBid']);
+        $db->insertPriceDB("BTC", $data['last'], 1, "Poloniex");
+        $db->insertPoloniexRateDB($coin, $data['last'], $data['high24hr'], $data['low24hr'], $data['lowestAsk'], $data['highestBid']);
     }
 }
