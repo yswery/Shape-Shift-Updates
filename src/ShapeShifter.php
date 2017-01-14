@@ -34,7 +34,7 @@ class ShapeShifter
         $db = new DBController();
         $data = $this->get_ETH_BTC();
 
-        $db->insertRateDB($data['pair'], $data['rate'], $data['limit'], $data['minerFee']);
+        $db->insertRateDB(strtoupper($data['pair']), $data['rate'], $data['limit'], $data['minerFee']);
 
     }
 
