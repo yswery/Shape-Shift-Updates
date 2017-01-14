@@ -4,13 +4,23 @@ namespace SSPro;
 
 class Poloniex
 {
+    /**
+     * String must have a valid coin to coin reference
+     *
+     * EG
+     *
+     * 'BTC_ETH'
+     * 'USDT_BTC'
+     */
+
+
     public function get_data($coin)
     {
         $uri = "https://poloniex.com/public?command=returnTicker";
 
         $data = json_decode(file_get_contents($uri), true);
 
-        return $data["BTC_" . $coin];
+        return $data[$coin];
     }
 
     public function set_data($coin)
