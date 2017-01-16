@@ -38,11 +38,11 @@ class DBController
 
     }
 
-    public function insertPoloniexRateDB($coin, $last, $high24hr, $low24hr, $lowAsk, $highBid)
+    public function insertPoloniexRateDB($coin, $last, $high24hr, $low24hr)
     {
 
-        $this->db->exec("INSERT INTO `poloniex_rates`(`id`,`coin`,`last`, `high24hr`, `low24hr`, `low_ask`, `high_bid`, `created_at`) 
-                         VALUES (NULL,'$coin', '$last', '$high24hr', '$low24hr', '$lowAsk', '$highBid', datetime(CURRENT_TIMESTAMP, 'localtime'))
+        $this->db->exec("INSERT INTO `poloniex_rates`(`id`,`coin`,`last`, `high24hr`, `low24hr`,`created_at`) 
+                         VALUES (NULL,'$coin', '$last', '$high24hr', '$low24hr', datetime(CURRENT_TIMESTAMP, 'localtime'))
                          ");
 
     }
