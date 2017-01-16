@@ -41,6 +41,7 @@ class Poloniex
         $data['last'] = 1 / $data['last'];
         $data['high24hr'] = 1 / $data['high24hr'];
         $data['low24hr'] = 1 / $data['low24hr'];
+        $data['lowestAsk'] = 1 / $data['lowestAsk'];
         $data['highestBid'] = 1 / $data['highestBid'];
         $split = explode('_', $coin);
         $coin = $split[1] . "_" . $split[0];
