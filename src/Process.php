@@ -31,6 +31,8 @@ class Process
         $this->coindesk->set_CoinDesk_BTC();
         $this->polon->set_data('USDT_BTC');
         $this->polon->set_data('BTC_ETH');
+        $this->polon->set_data_reverse('BTC_ETH');
+        $this->polon->set_data_reverse('BTC_XMR');
     }
 
 
