@@ -1,25 +1,29 @@
 <?php
 
+/**
+ * This class will be called by the Crontask to update the DB
+ */
 namespace SSPro;
+use Dotenv\Dotenv;
+use SSPro\Controller\ProcessShapeShift;
 
 require 'vendor/autoload.php';
 
-use Dotenv;
-// Loads the .env file with our credentials
-$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv = new Dotenv(__DIR__);
 $dotenv->load();
 
 
-$process = new Process();
+/**
+ * Updates the ShapeShift_Rates Table
+ */
+$shape = new ProcessShapeShift();
+$shape->set_ShapeShifter_Rates();
 
-$process->set_poloniex_Coin_Balances();
-$process->set_Prices_BTC();
-$process->set_ShapeShifter_Rates();
 
 
 
-echo "hello there";
 
+echo "Completed";
 die();
 
 
