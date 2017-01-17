@@ -15,8 +15,8 @@ session_start();
 
 
 
-if (isset($_SERVER['REDIRECT_URL'])) {
-    $uri = str_replace('/', '', $_SERVER['REDIRECT_URL']);
+if (isset($_SERVER['REQUEST_URI'])) {
+    $uri = str_replace('/', '', $_SERVER['REQUEST_URI']);
 }
 
 if ($uri == '') {
