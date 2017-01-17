@@ -1,14 +1,29 @@
 <?php
 
+
 namespace SSPro;
 
 require 'vendor/autoload.php';
 
-use Dotenv;
-// Loads the .env file with our credentials
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+session_start();
 
-echo "it worked";
-die();
+if (isset($_SERVER['REDIRECT_URL'])) {
+    $uri = str_replace('/', '', $_SERVER['REDIRECT_URL']);
+}
+
+if ($uri == '') {
+    header('location: /login');
+    die();
+}
+
+else if ($uri == 'login') {
+    echo "hello there ";
+    die();
+}
+
+else {
+    header('location: /login');
+    die();
+}
+
 
