@@ -1,6 +1,8 @@
 <?php
 
-namespace SSPro;
+namespace SSPro\Model;
+
+use SSPro\Service\DB;
 
 abstract class Base
 {
