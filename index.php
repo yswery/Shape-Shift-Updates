@@ -20,18 +20,18 @@ if (isset($_SERVER['REQUEST_URI'])) {
 }
 
 if ($uri == '') {
-    header('location: /login');
+    header('location: /welcome');
     die();
 }
 
-else if ($uri == 'login') {
+else if ($uri == 'welcome') {
     $home = new ProcessShapeShift();
     //$home->set_ShapeShifter_Rates();
     $home->get_ShapeShifter_Rates();
 }
 
 else {
-    header('location: /login');
+    header('location: /welcome');
     die();
 }
 
