@@ -27,6 +27,12 @@ class ShapeShifter
         $result = json_decode(file_get_contents($uri), true); // converts it to an array object
         return $result;
     }
+    public function get_BTC_DASH()
+    {
+        $uri = "https://shapeshift.io/marketinfo/dash_btc";
+        $result = json_decode(file_get_contents($uri), true); // converts it to an array object
+        return $result;
+    }
 
 
 }
