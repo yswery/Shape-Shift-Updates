@@ -74,6 +74,23 @@ class Prices extends Base
 
         return $data;
     }
+    public function getShapeShifterRate_DASH()
+    {
+        $sql = "SELECT * 
+                FROM `shapeshifter_rates`  
+                WHERE `coin` = 'DASH_BTC'
+                ORDER BY `created_at` DESC
+                LIMIT 10
+                ";
+
+        $stm = $this->database->prepare(($sql), array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+
+        $stm->execute();
+
+        $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data;
+    }
 
 
 }
