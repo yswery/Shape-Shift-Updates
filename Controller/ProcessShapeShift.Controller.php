@@ -35,7 +35,8 @@ class ProcessShapeShift extends Base
     public function get_ShapeShifter_Rates()
     {
         $prices = new Prices();
-        $viewData = $prices->getShapeShifterRate_XMR_ETH();
+        $viewData['ETH'] = $prices->getShapeShifterRate_ETH();
+        $viewData['XMR'] = $prices->getShapeShifterRate_XMR();
 
         $this->render('Welcome', 'home.view', $viewData);
     }
