@@ -21,6 +21,14 @@ class ShapeShifter
         return $result;
     }
 
+    public function get_BTC_XMR()
+    {
+        $uri = "https://shapeshift.io/marketinfo/btc_xmr";
+        $result = json_decode(file_get_contents($uri), true); // converts it to an array object
+        var_dump($result); die();
+        return $result;
+    }
+
 
 }
 
