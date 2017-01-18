@@ -22,7 +22,11 @@ class Prices extends Base
 
     public function getShapeShifterRate()
     {
-        $sql = "SELECT * FROM `shapeshifter_rates` ORDER BY `created_at` DESC";
+        $sql = "SELECT * 
+                FROM `shapeshifter_rates`  
+                ORDER BY `created_at` DESC
+                LIMIT 20
+                ";
 
         $stm = $this->database->prepare(($sql), array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 
