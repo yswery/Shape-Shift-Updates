@@ -22,7 +22,7 @@
 
     <!--    Center display for pages-->
         <div class="page-container">
-            <div class="container-fluid">
+            <div class="container">
 
                 <div class="col-sm-6 col-md-10" style="padding-top: 20px">
                     <?php include($viewName . '.php'); ?>
