@@ -27,7 +27,7 @@ class Prices extends Base
     {
         $sql = "SELECT * 
                 FROM `shapeshifter_rates`  
-                ORDER BY `created_at` DESC
+                ORDER BY `created_at` ASC
                 LIMIT 20
                 ";
 
@@ -45,7 +45,7 @@ class Prices extends Base
         $sql = "SELECT * 
                 FROM `shapeshifter_rates`  
                 WHERE `coin` = 'BTC_ETH'
-                ORDER BY `created_at` DESC
+                ORDER BY `created_at` ASC
                 LIMIT 10
                 ";
 
@@ -62,7 +62,7 @@ class Prices extends Base
         $sql = "SELECT * 
                 FROM `shapeshifter_rates`  
                 WHERE `coin` = 'BTC_XMR'
-                ORDER BY `created_at` DESC
+                ORDER BY `created_at` ASC
                 LIMIT 10
                 ";
 
@@ -79,7 +79,7 @@ class Prices extends Base
         $sql = "SELECT * 
                 FROM `shapeshifter_rates`  
                 WHERE `coin` = 'BTC_DASH'
-                ORDER BY `created_at` DESC
+                ORDER BY `created_at` ASC
                 LIMIT 10
                 ";
 
