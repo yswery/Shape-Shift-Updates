@@ -78,7 +78,7 @@ class Prices extends Base
     {
         $sql = "SELECT * 
                 FROM `shapeshifter_rates`  
-                WHERE `coin` = 'DASH_BTC'
+                WHERE `coin` = 'BTC_DASH'
                 ORDER BY `created_at` DESC
                 LIMIT 10
                 ";
