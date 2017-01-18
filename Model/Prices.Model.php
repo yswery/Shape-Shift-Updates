@@ -10,12 +10,15 @@ class Prices extends Base
 
     public function setShapeShifterRate($coin, $rate, $limit, $fee)
     {
-        $sql = "INSERT INTO `shapeshifter_rates` (`id`, `coin`, `rate_btc`, `limit`, `fee`, `created_at`) 
-                VALUES (NULL, '$coin', '$rate', '$limit', '$fee', CURRENT_TIMESTAMP);";
+        date_default_timezone_set('NZ');
+        $date = date("H:i:s d-m-Y");
 
+        $sql = "INSERT INTO `shapeshifter_rates` (`id`, `coin`, `rate_btc`, `limit`, `fee`, `created_at`) 
+                VALUES (NULL, '$coin', '$rate', '$limit', '$fee', '$date');";
+        //var_dump($sql);die();
         $stm = $this->database->prepare(($sql), array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 
-        $data = $stm->execute(array('$coin, $rate, $limit, $fee'));
+        $data = $stm->execute(array('$coin, $rate, $limit, $fee, $date'));
         return true;
     }
 
