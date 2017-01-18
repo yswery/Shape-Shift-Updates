@@ -20,12 +20,14 @@ class ProcessShapeShift extends Base
         $btcResult = $this->shape->get_BTC_ETH();
         $ethResult = $this->shape->get_ETH_BTC();
         $xmrResult = $this->shape->get_BTC_XMR();
+        $dashResult = $this->shape->get_BTC_DASH();
 
         $db = new Prices();
         try {
             $db->setShapeShifterRate(strtoupper($btcResult['pair']), round($btcResult['rate'], 3), round($btcResult['limit'], 3), round($btcResult['minerFee'], 3));
             $db->setShapeShifterRate(strtoupper($ethResult['pair']), round($ethResult['rate'], 3), round($ethResult['limit'], 3), round($ethResult['minerFee'], 3));
             $db->setShapeShifterRate(strtoupper($xmrResult['pair']), round($xmrResult['rate'], 3), round($xmrResult['limit'], 3), round($xmrResult['minerFee'], 3));
+            $db->setShapeShifterRate(strtoupper($dashResult['pair']), round($dashResult['rate'], 3), round($dashResult['limit'], 3), round($dashResult['minerFee'], 3));
 
         } catch (\PDOException $exception) {
           // Meh
@@ -37,6 +39,7 @@ class ProcessShapeShift extends Base
         $prices = new Prices();
         $viewData['ETH'] = $prices->getShapeShifterRate_ETH();
         $viewData['XMR'] = $prices->getShapeShifterRate_XMR();
+        $viewData['DASH'] = $prices->getShapeShifterRate_DASH();
 
         $this->render('Welcome', 'home.view', $viewData);
     }
