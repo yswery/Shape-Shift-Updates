@@ -19,11 +19,14 @@ class ProcessShapeShift extends Base
     {
         $btcResult = $this->shape->get_BTC_ETH();
         $ethResult = $this->shape->get_ETH_BTC();
+        $xmrResult = $this->shape->get_BTC_XMR();
 
         $db = new Prices();
         try {
             $db->setShapeShifterRate(strtoupper($btcResult['pair']), round($btcResult['rate'], 3), round($btcResult['limit'], 3), round($btcResult['minerFee'], 3));
             $db->setShapeShifterRate(strtoupper($ethResult['pair']), round($ethResult['rate'], 3), round($ethResult['limit'], 3), round($ethResult['minerFee'], 3));
+            $db->setShapeShifterRate(strtoupper($xmrResult['pair']), round($xmrResult['rate'], 3), round($xmrResult['limit'], 3), round($xmrResult['minerFee'], 3));
+
         } catch (\PDOException $exception) {
           // Meh
         }
