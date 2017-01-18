@@ -26,6 +26,7 @@ if ($uri == '') {
 
 else if ($uri == 'login') {
     $home = new ProcessShapeShift();
+    //$home->set_ShapeShifter_Rates();
     $home->get_ShapeShifter_Rates();
 }
 
