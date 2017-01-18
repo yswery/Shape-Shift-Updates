@@ -40,14 +40,30 @@ class Prices extends Base
         return $data;
     }
 
-    public function getShapeShifterRate_XMR_ETH()
+    public function getShapeShifterRate_ETH()
     {
         $sql = "SELECT * 
                 FROM `shapeshifter_rates`  
                 WHERE `coin` = 'BTC_ETH'
-                OR `coin` = 'BTC_XMR'
                 ORDER BY `created_at` DESC
-                LIMIT 20
+                LIMIT 10
+                ";
+
+        $stm = $this->database->prepare(($sql), array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+
+        $stm->execute();
+
+        $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data;
+    }
+    public function getShapeShifterRate_XMR()
+    {
+        $sql = "SELECT * 
+                FROM `shapeshifter_rates`  
+                WHERE `coin` = 'BTC_XMR'
+                ORDER BY `created_at` DESC
+                LIMIT 10
                 ";
 
         $stm = $this->database->prepare(($sql), array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
